@@ -1,0 +1,29 @@
+<h3>Flashing Nexus One with Cyanogenmod</h3>
+<ul>
+  <li>Place Cyanogenmod ROM on root of SD card</li>
+  <li>Unlock bootloader: <code>fastboot oem unlock</code></li>
+  <li>Boot into bootloader. Hold down trackball while powering on.</li>
+  <li>Flash AnonRa recovery image: <code>fastboot recovery ~/path_to/recovery-RA-passion-v2.2.1-CM.img</code></li>
+  <li>Boot into AnonRa recovery. (Note: this is removed if stock ROM is installed)
+  <li>Flash update-cm-7.1.0-N1-signed.zip from SD-card</li>
+</ul>
+
+<h3>Extract proprietary drivers from Nexus One</h3>
+<ul>
+  <li>Flash N1 with Cyanogenmod7</li>
+  <li>Checkout AOSP</li>
+  <li><code>. build/envsetup.sh</code></li>
+  <li><code>cd device/htc/passion &amp;&amp; ./extract-files.sh</li>
+</ul>
+
+<h3>Build custom AOSP for Nexus One</h3>
+<ul>
+  <li>init repo</li>
+  <li><code>. build/envsetup.sh</code></li>
+  <li><code>lunch full_passion-eng</code>
+  <li><code>make update-api</code></li>
+  <li><code>make -j4</code></li>
+  <li><code>adb reboot fastboot</code></li>
+  <li><code>fastboot -w flashall</code></li>
+  <li><code>make sdk</code></li>
+</ul>
